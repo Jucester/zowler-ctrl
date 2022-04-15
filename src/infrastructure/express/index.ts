@@ -2,6 +2,7 @@ import express from "express";
 import morgan from 'morgan';
 import { setupRoutes } from "./routes";
 import os from 'os';
+import { connectDB } from "../mongoose/connection";
 
 export class App {
 
@@ -14,8 +15,13 @@ export class App {
         this.stage = stage;
         this.app = express();
 
+        this.database();
         this.middlewares();
         this.routes();
+    }
+
+    private async database() {
+        await connectDB()
     }
 
 
