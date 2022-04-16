@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 
-export const connectDB = async () => {
+export const connectDB = async (stage: string) => {
   let url;
 
-  if (process.env.NOVE_ENV === "production") {
+  if (stage === "prod") {
     url = process.env.MONGO_URL;
-  } else if (process.env.NODE_ENV === "test") {
+  } else if (stage === "test") {
     url = process.env.MONGO_TEST;
-  } else if (process.env.NODE_ENV === "development") {
+  } else if (stage === "dev") {
     url = process.env.MONGO_DEV;
   }
 

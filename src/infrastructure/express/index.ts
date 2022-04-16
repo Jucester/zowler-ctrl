@@ -10,7 +10,7 @@ export class App {
     private stage: string;
     public app: express.Application;
 
-    constructor(port: string = '3000', stage: string = 'DEV') {
+    constructor(port: string = '3000', stage: string = 'dev') {
         this.port = port;
         this.stage = stage;
         this.app = express();
@@ -21,7 +21,7 @@ export class App {
     }
 
     private async database() {
-        await connectDB()
+        await connectDB(this.stage);
     }
 
 
