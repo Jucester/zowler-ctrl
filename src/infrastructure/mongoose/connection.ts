@@ -1,15 +1,15 @@
 import mongoose from "mongoose";
 
 export const connectDB = async (stage: string) => {
-  let url;
+  let url = process.env.MONG_URL;
 
-  if (stage === "prod") {
-    url = process.env.MONGO_URL;
-  } else if (stage === "test") {
-    url = process.env.MONGO_TEST;
-  } else if (stage === "dev") {
-    url = process.env.MONGO_DEV;
-  }
+//   if (stage === "prod") {
+//     url = process.env.MONGO_URL;
+//   } else if (stage === "test") {
+//     url = process.env.MONGO_TEST;
+//   } else if (stage === "dev") {
+//     url = process.env.MONGO_DEV;
+//   }
 
   try {
     await mongoose.connect(url || "mongodb://localhost:27017/zowler_ctrl", {
