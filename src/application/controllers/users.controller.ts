@@ -6,6 +6,11 @@ class UsersController {
         const { statusCode, body} = await UsersService.findAll(req.query);
         return res.status(statusCode).json(body);
     }
+
+    async create(req: Request, res: Response) {
+        const { statusCode, body } = await UsersService.create(req.body);
+        return res.status(statusCode).json(body);
+    }
 }
 
 export default new UsersController();

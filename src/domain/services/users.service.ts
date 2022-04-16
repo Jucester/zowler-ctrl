@@ -8,11 +8,19 @@ class UsersService {
     }
 
     async findAll(queryParams: any) {
-        return this._repo.findAll()
+        const res = await this._repo.findAll();
+        return {
+            statusCode: 200,
+            body: res,
+        }
     }
 
     async create(entity: any) {
-        return this._repo.create(entity);
+        const res = await this._repo.create(entity);
+        return {
+            statusCode: 200,
+            body: res,
+        }
     }
 }
 

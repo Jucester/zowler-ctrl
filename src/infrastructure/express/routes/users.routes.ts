@@ -6,7 +6,7 @@ export const UserRoutes = (app: Application) => {
 
     app.use('/api/users', router);
     app.get('/api/users', UsersController.findAll);
-
+    app.post('/api/users', UsersController.create);
 
     return router;
 }

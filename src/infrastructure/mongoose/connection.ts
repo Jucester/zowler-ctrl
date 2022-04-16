@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 
 export const connectDB = async (stage: string) => {
-  let url = process.env.MONG_URL;
+  let url = process.env.MONGO_URL;
 
 //   if (stage === "prod") {
 //     url = process.env.MONGO_URL;
